@@ -1,0 +1,38 @@
+# Visual Studio / .NET
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build rezultati
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Bb]in/
+[Oo]bj/
+
+# NuGet
+packages/
+*.nupkg
+project.lock.json
+project.assets.json
+
+# Rezultati testiranja
+[Tt]est[Rr]esult*/
+*.trx
+
+# Baza podataka - lokalni fajlovi
+*.mdf
+*.ldf
+*.ndf
+
+# Ostalo
+*.cache
+*.log
+*.tmp
+Thumbs.db
+.DS_Store
