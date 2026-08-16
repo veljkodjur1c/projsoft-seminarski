@@ -31,6 +31,7 @@ namespace Client.GuiController
             obrisiKupacGuiController = new ObrisiKupacGuiController();
             racunGuiController = new RacunGuiController();
             pretraziRacunGuiController = new PretraziRacunGuiController();
+            promeniRacunGuiController = new PromeniRacunGuiController();
             // Ostali kontroleri se dodaju u narednim koracima.
         }
 
@@ -44,6 +45,7 @@ namespace Client.GuiController
         private readonly ObrisiKupacGuiController obrisiKupacGuiController;
         private readonly RacunGuiController racunGuiController;
         private readonly PretraziRacunGuiController pretraziRacunGuiController;
+        private readonly PromeniRacunGuiController promeniRacunGuiController;
 
         internal void ShowMain()
         {
@@ -61,7 +63,10 @@ namespace Client.GuiController
         {
             frmMain.ChangePanel(pretraziRacunGuiController.CreatePretraziRacun());
         }
-        internal void ShowPromeniRacunPanel() => UIzradi("Promeni racun");
+        internal void ShowPromeniRacunPanel()
+        {
+            frmMain.ChangePanel(promeniRacunGuiController.CreatePromeniRacun());
+        }
 
         // ---------- SK4, SK5, SK6, SK7 ----------
         internal void ShowKreirajKupacPanel()
@@ -98,16 +103,6 @@ namespace Client.GuiController
         }
 
         /// <summary>
-        /// Privremena zamena za paneli koji jos nisu napravljeni.
-        /// Bice uklonjena kada se dodaju sve korisnicke kontrole.
-        /// </summary>
-        private void UIzradi(string naziv)
-        {
-            MessageBox.Show($"Panel \"{naziv}\" jos nije napravljen.",
-                "Poruka", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        /// <summary>
         /// Poziva se pri promeni panela i pri zatvaranju aplikacije,
         /// da bi se ponistili nedovrseni unosi.
         /// </summary>
@@ -120,6 +115,7 @@ namespace Client.GuiController
             obrisiKupacGuiController.HandleClose();
             racunGuiController.HandleClose();
             pretraziRacunGuiController.HandleClose();
+            promeniRacunGuiController.HandleClose();
         }
     }
 }

@@ -41,7 +41,7 @@ namespace Client
                 menuDokumenti, menuPrimalacUsluge, menuSifarnici, itemOProgramu });
             menuStrip.Location = new Point(0, 0);
             menuStrip.Name = "menuStrip";
-            menuStrip.Size = new Size(900, 24);
+            menuStrip.Size = new Size(1000, 24);
             menuStrip.TabIndex = 0;
             // 
             // menuDokumenti
@@ -148,14 +148,14 @@ namespace Client
             pnlMain.Dock = DockStyle.Fill;
             pnlMain.Location = new Point(0, 24);
             pnlMain.Name = "pnlMain";
-            pnlMain.Size = new Size(900, 526);
+            pnlMain.Size = new Size(1000, 676);
             pnlMain.TabIndex = 1;
             // 
             // FrmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(900, 550);
+            ClientSize = new Size(1000, 700);
             Controls.Add(pnlMain);
             Controls.Add(menuStrip);
             MainMenuStrip = menuStrip;
