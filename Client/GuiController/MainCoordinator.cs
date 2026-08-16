@@ -24,12 +24,22 @@ namespace Client.GuiController
 
         private MainCoordinator()
         {
-            // Kontroleri slucajeva koriscenja se dodaju u narednim koracima.
+            kvalifikacijaGuiController = new KvalifikacijaGuiController();
+            kupacGuiController = new KupacGuiController();
+            pretraziKupacGuiController = new PretraziKupacGuiController();
+            promeniKupacGuiController = new PromeniKupacGuiController();
+            obrisiKupacGuiController = new ObrisiKupacGuiController();
+            // Ostali kontroleri se dodaju u narednim koracima.
         }
 
         #endregion
 
         private FrmMain frmMain;
+        private readonly KvalifikacijaGuiController kvalifikacijaGuiController;
+        private readonly KupacGuiController kupacGuiController;
+        private readonly PretraziKupacGuiController pretraziKupacGuiController;
+        private readonly PromeniKupacGuiController promeniKupacGuiController;
+        private readonly ObrisiKupacGuiController obrisiKupacGuiController;
 
         internal void ShowMain()
         {
@@ -44,13 +54,28 @@ namespace Client.GuiController
         internal void ShowPromeniRacunPanel() => UIzradi("Promeni racun");
 
         // ---------- SK4, SK5, SK6, SK7 ----------
-        internal void ShowKreirajKupacPanel() => UIzradi("Kreiraj kupca");
-        internal void ShowPretraziKupacPanel() => UIzradi("Pretrazi kupca");
-        internal void ShowPromeniKupacPanel() => UIzradi("Promeni kupca");
-        internal void ShowObrisiKupacPanel() => UIzradi("Obrisi kupca");
+        internal void ShowKreirajKupacPanel()
+        {
+            frmMain.ChangePanel(kupacGuiController.CreateKreirajKupac());
+        }
+        internal void ShowPretraziKupacPanel()
+        {
+            frmMain.ChangePanel(pretraziKupacGuiController.CreatePretraziKupac());
+        }
+        internal void ShowPromeniKupacPanel()
+        {
+            frmMain.ChangePanel(promeniKupacGuiController.CreatePromeniKupac());
+        }
+        internal void ShowObrisiKupacPanel()
+        {
+            frmMain.ChangePanel(obrisiKupacGuiController.CreateObrisiKupac());
+        }
 
         // ---------- SK21 ----------
-        internal void ShowUbaciKvalifikacijuPanel() => UIzradi("Ubaci kvalifikaciju");
+        internal void ShowUbaciKvalifikacijuPanel()
+        {
+            frmMain.ChangePanel(kvalifikacijaGuiController.CreateUbaciKvalifikaciju());
+        }
 
         internal void PrikaziOProgramu()
         {
@@ -78,7 +103,11 @@ namespace Client.GuiController
         /// </summary>
         internal void HandleClose()
         {
-            // Bice popunjeno kada se dodaju kontroleri koji prave privremene slogove.
+            kvalifikacijaGuiController.HandleClose();
+            kupacGuiController.HandleClose();
+            pretraziKupacGuiController.HandleClose();
+            promeniKupacGuiController.HandleClose();
+            obrisiKupacGuiController.HandleClose();
         }
     }
 }
