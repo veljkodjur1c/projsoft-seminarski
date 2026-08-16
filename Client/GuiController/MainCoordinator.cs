@@ -30,6 +30,7 @@ namespace Client.GuiController
             promeniKupacGuiController = new PromeniKupacGuiController();
             obrisiKupacGuiController = new ObrisiKupacGuiController();
             racunGuiController = new RacunGuiController();
+            pretraziRacunGuiController = new PretraziRacunGuiController();
             // Ostali kontroleri se dodaju u narednim koracima.
         }
 
@@ -42,6 +43,7 @@ namespace Client.GuiController
         private readonly PromeniKupacGuiController promeniKupacGuiController;
         private readonly ObrisiKupacGuiController obrisiKupacGuiController;
         private readonly RacunGuiController racunGuiController;
+        private readonly PretraziRacunGuiController pretraziRacunGuiController;
 
         internal void ShowMain()
         {
@@ -55,7 +57,10 @@ namespace Client.GuiController
         {
             frmMain.ChangePanel(racunGuiController.CreateKreirajRacun());
         }
-        internal void ShowPretraziRacunPanel() => UIzradi("Pretrazi racun");
+        internal void ShowPretraziRacunPanel()
+        {
+            frmMain.ChangePanel(pretraziRacunGuiController.CreatePretraziRacun());
+        }
         internal void ShowPromeniRacunPanel() => UIzradi("Promeni racun");
 
         // ---------- SK4, SK5, SK6, SK7 ----------
@@ -114,6 +119,7 @@ namespace Client.GuiController
             promeniKupacGuiController.HandleClose();
             obrisiKupacGuiController.HandleClose();
             racunGuiController.HandleClose();
+            pretraziRacunGuiController.HandleClose();
         }
     }
 }
